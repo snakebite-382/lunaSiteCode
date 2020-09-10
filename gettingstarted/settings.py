@@ -119,5 +119,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
+# from boto.s3.connection import S3Connection
+# s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 
 django_heroku.settings(locals())

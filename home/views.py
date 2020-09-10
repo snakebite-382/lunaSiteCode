@@ -9,14 +9,14 @@ from reviews.models import Review
 class HomePageView(View):
 	template_name = "index.html"
 	def get(self, request, *args, **kwargs):
-		# querysetNew = Article.objects.filter(new="True", active="True")
-		# querysetFeaturedArticles = Article.objects.filter(featured="True", active="True")
-		# querysetFeaturedReviews =  Review.objects.filter(featured="True", active="True")
-		# articleOfTheWeek = Article.objects.get(articleOfTheWeek="True", active="True")
+		querysetNew = Article.objects.filter(new="True", active="True")
+		querysetFeaturedArticles = Article.objects.filter(featured="True", active="True")
+		querysetFeaturedReviews =  Review.objects.filter(featured="True", active="True")
+		articleOfTheWeek = Article.objects.get(articleOfTheWeek="True", active="True")
 		context = {
-			# "object_list_new": querysetNew,
-			# "object_list_featured_articles": querysetFeaturedArticles,
-			# "object_list_featured_reviews": querysetFeaturedReviews,
-			# "article_of_the_week": articleOfTheWeek,
+			"object_list_new": querysetNew,
+			"object_list_featured_articles": querysetFeaturedArticles,
+			"object_list_featured_reviews": querysetFeaturedReviews,
+			"article_of_the_week": articleOfTheWeek,
 		}
 		return render(request, self.template_name, context)
