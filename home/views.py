@@ -20,6 +20,6 @@ class HomePageView(View):
 				"object_list_featured_reviews": querysetFeaturedReviews,
 				"article_of_the_week": articleOfTheWeek,
 			}
-		except Error as e:
+		except Exception as e:
 			print(e)
 		return render(request, self.template_name, context)
