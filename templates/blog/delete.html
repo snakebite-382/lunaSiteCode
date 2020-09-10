@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete {{ obj.title }}{% endblock %}
+
+{% block content %}
+	{% if user.is_superuser %}
+		<form action="" method="POST"> {% csrf_token %}
+			<p>Delete {{ obj.title }}?<p>
+			<p><input type="submit" name="Delete"> | <a href="../">Cancel</a> </p>
+		</form>
+	{% else %}
+		<h1>You're not supposed to be here! Maybe you just aren't logged in, if not return home<br>
+			<a href="/admin" class="btn btn-danger">Login</a> <a href="/" class="btn btn-primary">Return Home</a>
+		</h1>
+	{% endif %}
+{% endblock %}

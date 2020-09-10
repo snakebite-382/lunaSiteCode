@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<!-- set out charset and make our viewport responsive -->
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- set up a title block to display the title -->
+	<title>{% block title %}{% endblock %} - lunadogblog.com</title>
+	<!-- import the bootstrap cdn -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<!-- give some space to import stylesheets -->
+	{% block stylesheets %}
+	{% endblock %}
+	<!-- import default sheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+</head>
+<body>
+	<div class="container-fluid top m-0 p-0">
+  		<div class="row d-flex justify-content-center">
+    		<div class="col-12">
+    			<div class="jumbotron text-center">
+	    			<h1>WE ARE CURRENTLY HAVING SOME ISSUES WITH SERVING IMAGE FILES FROM AMAZON WEB SERVICES PLEASE HANG TIGHT WHILE WE SORT THAT OUT.
+					THE DEFUALT IMAGES WORK FINE SO BLOG POSTS ARE STILL WORKING BUT THE GALLERY IS OUT OF ORDER RIGHT NOW</h1>
+				</div>
+        	</div>
+    	</div>
+	</div>
+	<!-- include the navbar and create a space to add content -->
+	<div id="nav" class="container-fluid navbar-dark bg-dark sticky-top">
+		<nav class="navbar navbar-expand-md">
+
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-items"><span class="navbar-toggler-icon"></span></button>
+
+			<div id="nav-items" class="collapse navbar-collapse">
+				<a class="navbar-brand"><img src="/static/images/logo.PNG" height="75px"></a>
+				<span class="navbar-text" id="catchPhrase">One dog against the whole world</span>
+
+					<ul class="navbar-nav ml-auto">
+
+						<li class="nav-item">
+							<a href="/" class="nav-link">Home</a>
+						</li>
+						{% if user.is_superuser %}
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown1">
+									Blog
+									<span class="caret"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="#dropdown1">
+									<a href="/blog/" class="dropdown-item">Posts</a>
+									<div class="dropdown-divider"></div>
+									<a href="/blog/create" class="dropdown-item">Create</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a href="/blog/" class="nav-link">Blog</a>
+							</li>
+						{% endif %}
+						{% if user.is_superuser %}
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown2">
+									Reviews
+									<span class="caret"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="#dropdown2">
+									<a href="/reviews/" class="dropdown-item">Reviews</a>
+									<div class="dropdown-divider"></div>
+									<a href="/reviews/create" class="dropdown-item">Create</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a href="/reviews/" class="nav-link">Reviews</a>
+							</li>
+						{% endif %}
+						{% if user.is_superuser %}
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown3">
+									Gallery
+									<span class="caret"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="#dropdown1">
+									<a href="/gallery/" class="dropdown-item">Gallery</a>
+									<div class="dropdown-divider"></div>
+									<a href="/gallery/create" class="dropdown-item">Create</a>
+								</div>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a href="/gallery/" class="nav-link">Gallery</a>
+							</li>
+						{% endif %}
+						<li class="nav-item">
+							<a href="/about" class="nav-link">About</a>
+						</li>
+						<li class="nav-item">
+							<a href="/contact" class="nav-link">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a href="/admin" class="nav-link">Admin</a>
+						</li>
+					</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container-fluid m-0 p-0">
+		<div class="row">
+			<div class="col-12">
+				{% block content-fluid %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+  		<div class="row d-flex justify-content-center">
+    		<div class="col-12">
+        		{% block content %}
+				{% endblock %}
+        	</div>
+    	</div>
+	</div>
+</body>
+</html>

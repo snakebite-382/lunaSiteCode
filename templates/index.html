@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Home Page
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" src="/static/css/carousel.css">
+{% endblock %}
+
+{% block content-fluid %}
+ <div class="jumbotron">
+ 	<div class="text-center">
+ 		<h1>Welcome to Luna's website!</h1>
+ 		<h3>This is site is the hub of everything Luna, from silly articles, to reviews, to a photo gallery this is a complete website for our dog luna
+ 			to connect to YOU! If you don't already know Luna is our family dog. She is a English Springer Spaniel bred by my grandfather. She is 3 years old and absolutely adorable! We love her very much and hope you will too! Please enjoy this sample of New, and Featured articles and even some Featured reviews!</h3>
+ 	</div>
+ </div>
+{% endblock %}
+
+{% block content %}
+	{% if article_of_the_week %}
+		<div class='card'>
+			<a href="{{ article_of_the_week.get_absolute_url }}" style="color:black; text-decoration:none;">
+				<img src="/static/images/default.jpg" class="card-img-top">
+				<div class="card-bod text-center">
+					<div class="card-img-overlay text-center">
+						<h1>Featured Article!</h1>
+					</div>
+					<div class="card-title">
+						<h2>{{ article_of_the_week.title }}</h2>
+						<h3>By: {{ article_of_the_week.author }}</h3>
+					</div>
+					<div class="card-text">
+						<h5>{{ article_of_the_week.teaserSummary }}</h5>
+						<h5>{{article_of_the_week.createdOn|timesince}} ago</h5>
+
+					</div>
+				</div>
+			</a>
+		</div>
+	{% endif %}
+	{% if object_list_new.count > 0 %}
+	<div id="blog-slider-new" class="carousel slide" data-interval="false">
+			<div style="padding:10px;">
+				<div id="newPostsBanner" class="d-none d-md-block text-center" style="border-radius: 15px 50px; background: #2eb82e;">
+	  				<h1>New Articles</h1>
+	  			</div>
+	  		</div>
+				<div class="carousel-inner" role="listbox">
+
+					<ol class="carousel-indicators">
+    					{% for obj in object_list_new %}
+        					{% if forloop.first %}
+            					<li data-target="#blog-slider-new" data-slide-to="{{forloop.counter0}}" class="active"></li>
+       				 		{% else %}
+            					<li data-target="#blog-slider-new" data-slide-to="{{forloop.counter0}}"></li>
+       					 	{% endif %}
+    					{% endfor %}
+       			 	</ol>
+
+					{% for post in object_list_new %}
+						{% if forloop.counter == 1 %}
+							<div class="carousel-item active">
+								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+								<div class="carousel-caption d-none d-md-block" style="color:black;">
+									<h2>{{ post.title }}</h2>
+									<h3>By: {{ post.author }}</h3>
+									<h4>{{ post.teaserSummary }}</h4>
+									<h5>{{post.createdOn|timesince}} ago</h5>
+								</div>
+							</div>
+						{% else %}
+							<div class="carousel-item">
+								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+								<div class="carousel-caption d-none d-md-block" style="color:black;">
+
+								<h2>{{ post.title }}</h2>
+								<h3>By: {{ post.author }}</h3>
+								<h4>{{ post.teaserSummary }}</h4>
+								<h5>{{post.createdOn|timesince}} ago</h5>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% if object_list_new.count > 1 %}
+				<a class="carousel-control-prev" href="#blog-slider-new" role="button" data-slide="prev">
+	    			<span class="carousel-control-prev-icon"></span>
+	    			<span class="sr-only">Previous</span>
+	  			</a>
+	  			<a class="carousel-control-next" href="#blog-slider-new" role="button" data-slide="next">
+	    			<span class="carousel-control-next-icon"></span>
+	    			<span class="sr-only">Next</span>
+	  			</a>
+	  		{% endif %}
+	</div>
+	{% endif %}
+
+	{% if object_list_featured_articles.count > 0 %}
+		<div id="blog-slider-feat" class="carousel slide" data-interval="false">
+			<div style="padding:10px;">
+				<div id="featuredPostsBanner" class="d-none d-md-block text-center" style="border-radius: 15px 50px; background: #cc0000;">
+	  				<h1>Featured Articles</h1>
+	  			</div>
+	  		</div>
+				<div class="carousel-inner" role="listbox">
+
+					<ol class="carousel-indicators">
+    					{% for obj in object_list_featured_articles %}
+        					{% if forloop.first %}
+            					<li data-target="#blog-slider-feat" data-slide-to="{{forloop.counter0}}" class="active"></li>
+       				 		{% else %}
+            					<li data-target="#blog-slider-feat" data-slide-to="{{forloop.counter0}}"></li>
+       					 	{% endif %}
+    					{% endfor %}
+   			 		</ol>
+
+					{% for post in object_list_featured_articles %}
+						{% if forloop.counter == 1 %}
+							<div class="carousel-item active">
+								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+								<div class="carousel-caption d-none d-md-block" style="color:black;">
+									<h2>{{ post.title }}</h2>
+									<h3>By: {{ post.author }}</h3>
+									<h4>{{ post.teaserSummary }}</h4>
+									<h5>{{post.createdOn|timesince}} ago</h5>
+								</div>
+							</div>
+						{% else %}
+							<div class="carousel-item">
+								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+								<div class="carousel-caption d-none d-md-block" style="color:black;">
+
+								<h2>{{ post.title }}</h2>
+								<h3>By: {{ post.author }}</h3>
+								<h4>{{ post.teaserSummary }}</h4>
+								<h5>{{post.createdOn|timesince}} ago</h5>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% if object_list_featured_articles.count > 1 %}
+				<a class="carousel-control-prev" href="#blog-slider-feat" role="button" data-slide="prev">
+	    			<span class="carousel-control-prev-icon"></span>
+	    			<span class="sr-only">Previous</span>
+	  			</a>
+	  			<a class="carousel-control-next" href="#blog-slider-feat" role="button" data-slide="next">
+	    			<span class="carousel-control-next-icon"></span>
+	    			<span class="sr-only">Next</span>
+	  			</a>
+	  		{% endif %}
+		</div>
+	{% endif %}
+
+	{% if object_list_featured_reviews.count > 0 %}
+		<div id="blog-slider-feat-rev" class="carousel slide" data-interval="false">
+		<div style="padding:10px;">
+			<div id="featuredReviewsBanner" class="d-none d-md-block text-center"
+			style="
+				border-radius: 15px 50px;
+				background: #0066ff;">
+  				<h1>Featured Reviews</h1>
+  			</div>
+  		</div>
+			<div class="carousel-inner" role="listbox">
+
+				<ol class="carousel-indicators">
+					{% for obj in object_list_featured_reviews %}
+    					{% if forloop.first %}
+        					<li data-target="#blog-slider-feat-rev" data-slide-to="{{forloop.counter0}}" class="active"></li>
+   				 		{% else %}
+        					<li data-target="#blog-slider-feat-rev" data-slide-to="{{forloop.counter0}}"></li>
+   					 	{% endif %}
+					{% endfor %}
+			 	</ol>
+
+				{% for post in object_list_featured_reviews %}
+					{% if forloop.counter == 1 %}
+						<div class="carousel-item active">
+							<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+							<div class="carousel-caption d-none d-md-block" style="color:black;">
+								<h2>{{ post.product }}</h2>
+								{% if post.rating == '1S' %}
+									<h2>★☆☆☆☆</h2>
+								{% elif post.rating == '2S' %}
+									<h2>★★☆☆☆</h2>
+								{% elif post.rating == '3S' %}
+									<h2>★★★☆☆</h2>
+								{% elif post.rating == '4S' %}
+									<h2>★★★★☆</h2>
+								{% elif post.rating == '5S' %}
+									<h2>★★★★★</h2>
+								{% endif %}
+								<h3>By: {{ post.author }}</h3>
+								<h5>{{post.createdOn|timesince}} ago</h5>
+							</div>
+						</div>
+					{% else %}
+						<div class="carousel-item">
+							<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
+							<div class="carousel-caption d-none d-md-block" style="color:black;">
+
+							<h2>{{ post.product }}</h2>
+							{% if post.rating == '1S' %}
+								<h2>★☆☆☆☆</h2>
+							{% elif post.rating == '2S' %}
+								<h2>★★☆☆☆</h2>
+							{% elif post.rating == '3S' %}
+								<h2>★★★☆☆</h2>
+							{% elif post.rating == '4S' %}
+								<h2>★★★★☆</h2>
+							{% elif post.rating == '5S' %}
+								<h2>★★★★★</h2>
+							{% endif %}
+							<h3>By: {{ post.author }}</h3>
+							<h5>{{post.createdOn|timesince}} ago</h5>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% if object_list_featured_reviews.count > 1 %}
+			<a class="carousel-control-prev" href="#blog-slider-feat-rev" role="button" data-slide="prev">
+    			<span class="carousel-control-prev-icon"></span>
+    			<span class="sr-only">Previous</span>
+  			</a>
+  			<a class="carousel-control-next" href="#blog-slider-feat-rev" role="button" data-slide="next">
+    			<span class="carousel-control-next-icon"></span>
+    			<span class="sr-only">Next</span>
+  			</a>
+  		{% endif %}
+	{% endif %}
+{% endblock %}

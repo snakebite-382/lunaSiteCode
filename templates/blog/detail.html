@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Article "{{ obj.title|title }}"{% endblock %}
+
+{% block stylesheet %}{% if user.is_superuser %}<link rel="stylesheet" type="text/css" href="/static/css/detail.css">{% endif %}{% endblock %}
+
+{% block content-fluid %}
+	<div class="card text-center">
+		<div class="card-body">
+			<div class="jumbotron bg-info">
+				<h1 class="card-title">{{ obj.title }}</h1>
+			</div>
+			<div class="card-text">
+				<h2>By: {{ obj.author }}</h2>
+
+				<h5>{{ obj.main|striptags}}</h5>
+			</div>
+		</div>
+	</div>
+<div class="row align-items-center justify-content-center">
+	{% if user.is_superuser %}
+		<a href="update" class='btn btn-success'>Edit</a> <a href="delete" class="btn btn-danger">Delete</a>
+	{% endif %}
+	<a href="/blog" class='btn btn-dark'>Back</a>
+</div>
+
+{% endblock %}
+{% block content %}
+<script>
+	var URL = 'http://127.0.0.1:8000/{{ obj.get_absolute_url }}';
+	var ID = '{{ obj.get_absolute_url }}';
+</script>
+
+{% include 'comments.html' %}
+{% endblock %}

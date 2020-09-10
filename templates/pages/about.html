@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/css/about.css">
+{% endblock %}
+
+{% block content-fluid %}
+<div class="jumbotron text-center">
+	<h1>Read about this site!</h1>
+	<h3>If you have a suggestion, question, or a concern head over to the <a href="/contact">Contact</a> page and shoot us an email!</h3>
+</div>
+{% endblock %}
+
+{% block content %}
+	<div class="card-deck">
+		<div class="text-center">
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="heading"><a href="/">Home</a></h3>
+						<h4>General</h4>
+							<h5>This is where you'll find important news, a selection of featured or new articles, featured reviews,
+								and eventually featured dogs.
+							</h5>
+						<br>
+						<h4>Articles</h4>
+							<h5>
+								There are two carousels(sliders) for articles. There's Featured, and there's also New. These are exactly what they sound like and are there as an easy way to quickly see whats new and whats good blog wise.
+							</h5>
+						<br>
+						<h4>Reviews</h4>
+						<h5>We only have Featured reviews here but if you want to see them all check out the reviews page.</h5>
+						<br>
+						<h4>Featured Dogs</h4>
+						<h5>If we get enough people interested I'll add a section where you can see the three featured dogs. Featured dogs will change every week. Each dog will have a profile for you to check out. If you would be interested in this check out the <a href="/contact">Contact</a> page.</h5>
+				</div>
+			</div>
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/blog">Blog</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>This is where you'll find a selection of sorted blog posts for you to browse through!</h5>
+							<br>
+							<h4>Sections</h4>
+							<h5>The sections consist of All, New, and Featured. These are just an easy way to stay up to date, see what's trending, or just flip through everything we have to offer.</h5>
+						</div>
+				</div>
+			</div>
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/reviews">Reviews</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>These are just some products we've reviewed. Similar to the last two there are multiple sections to flip through. Every product is rated out of 5 stars and the name is just the product so it's easy to find what you want</h5>
+							<br>
+							<h4>Sections</h4>
+							<h5>Unlike the blog there are only two sections here All, and Featured since a New section wouldn't be very helpful.</h5>
+						</div>
+				</div>
+			</div>
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/gallery">Gallery</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>This is just a simple photo gallery. There will be featured dogs here from time to time</h5>
+							<br>
+							<h4>Featured Dogs</h4>
+							<h5>
+								If you end up on the home page as a featured dog you will also get your own section on here! Each of your pics will link to your profile and all of this will be deleted after a week.
+							</h5>
+						</div>
+				</div>
+			</div>
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/contact">Contact</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>Check this out if any of the suggested changes would be interesting to you or if you have a question, or concern</h5>
+							<br>
+							<h4>Other Possible Additions</h4>
+							<h5>If you would be interested in any of the following features please contact us.<br><br>
+								• A merch store <br>
+								• Featured dogs <br>
+								• Request for reviews, or blog posts
+							 </h5>
+						</div>
+				</div>
+			</div>
+
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/about">About</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>Finally this page. This is, as you may have noticed just a some short descriptions for each of the pages on this site</h5>
+						</div>
+				</div>
+			</div>
+
+			<div class="card my-3">
+				<div class="card-body">
+					<h3 class="card-title"><a href="/admin">Admin</a></h3>
+						<div class="card-text">
+							<h4>General</h4>
+							<h5>If you are a site administrator this is where you would sign in to gain special access to site admin tools</h5>
+						</div>
+				</div>
+			</div>
+
+	</div>
+{% endblock %}

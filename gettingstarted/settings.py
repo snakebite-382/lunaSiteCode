@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "hello",
+    "home",
+    "blog",
+    "pages",
+    "reviews",
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,7 @@ ROOT_URLCONF = "gettingstarted.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -116,4 +119,4 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

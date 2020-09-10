@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Review "{{ obj.product|title }}"{% endblock %}
+
+{% block content-fluid %}
+	<div class="card text-center">
+		<div class="card-body">
+			<div class="jumbotron bg-info">
+				<h1 class="card-title">{{ obj.product}}</h1>
+			</div>
+			<div class="card-text">
+				<h2>By: {{ obj.author }} |
+								{% if obj.rating == '1S' %}
+									★☆☆☆☆
+								{% elif obj.rating == '2S' %}
+									★★☆☆☆
+								{% elif obj.rating == '3S' %}
+									★★★☆☆
+								{% elif obj.rating == '4S' %}
+									>★★★★☆
+								{% elif obj.rating == '5S' %}
+									★★★★★
+								{% endif %}</h2>
+
+				<h4>{{ obj.body|striptags }}</h4>
+			</div>
+		</div>
+	</div>
+<div class="row align-items-center justify-content-center">
+	{% if user.is_superuser %}
+		<a href="update" class='btn btn-success'>Edit</a> <a href="delete" class="btn btn-danger">Delete</a>
+	{% endif %}
+	<a href="/reviews" class='btn btn-dark'>Back</a>
+</div>
+{% endblock %}
+{% block content %}
+
+<script>
+	var URL = 'http://127.0.0.1:8000/{{ obj.get_absolute_url }}';
+	var ID = '{{ obj.get_absolute_url }}';
+</script>
+
+{% include 'comments.html' %}
+
+{% endblock %}

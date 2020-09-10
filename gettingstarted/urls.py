@@ -1,21 +1,18 @@
-from django.urls import path, include
-
 from django.contrib import admin
+from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-admin.autodiscover()
-
-import hello.views
-
-# To add a new path, first import the app:
-# import blog
-#
-# Then add the new path:
-# path('blog/', blog.urls, name="blog")
-#
-# Learn more here: https://docs.djangoproject.com/en/2.1/topics/http/urls/
+from pages.views import contact_view, about_view
+from home.views import HomePageView
 
 urlpatterns = [
-    path("", hello.views.index, name="index"),
-    path("db/", hello.views.db, name="db"),
-    path("admin/", admin.site.urls),
+    path('blog/', include('blog.urls')),
+    path('reviews/', include('reviews.urls')),
+
+    path('admin/', admin.site.urls),
+
+	path('',HomePageView.as_view()),
+    path('contact/', contact_view, name='contact'),
+    path('about/', about_view, name='about'),
+
 ]
