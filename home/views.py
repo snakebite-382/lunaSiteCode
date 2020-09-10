@@ -22,4 +22,5 @@ class HomePageView(View):
 			}
 		except Exception as e:
 			print(e)
+			context = {}
 		return render(request, self.template_name, context)
