@@ -124,5 +124,6 @@ class BlogPostDetailView(GetObjectMixin, View):
 		context = {
 			"obj": self.get_object(),
 		}
+		print(context)
 
 		return render(request, self.template_name, context)
