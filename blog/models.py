@@ -19,4 +19,4 @@ class Article(models.Model):
 		return  f"{self.title} - {self.author}"
 
 	def get_absolute_url(self, *args, **kwargs):
-		return reverse('blog-detail', kwargs={'id': self.id})
+		return reverse('blog-detail', kwargs={'slug': self.slug})
