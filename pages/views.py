@@ -6,3 +6,6 @@ def contact_view(request):
 
 def about_view(request):
 	return render(request, 'pages/about.html', {})
+
+def error_404_view(request):
+	return render(request, 'error_404.html', {})
