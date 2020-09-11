@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Article "{{ obj.title|title }}"{% endblock %}
+{% block title %}Article "{{ object.title|title }}"{% endblock %}
 
 {% block stylesheet %}{% if user.is_superuser %}<link rel="stylesheet" type="text/css" href="/static/css/detail.css">{% endif %}{% endblock %}
 
@@ -7,7 +7,7 @@
 	<div class="card text-center">
 		<div class="card-body">
 			<div class="jumbotron bg-info">
-				<h1 class="card-title">{{ obj.title }}</h1>
+				<h1 class="card-title">{{ object.title }}</h1>
 			</div>
 			<div class="card-text">
 				<h2>By: {{ object.author }}</h2>
