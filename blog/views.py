@@ -8,13 +8,13 @@ from .forms import ArticleCreateForm
 
 class GetObjectMixin(object):
 	model = Article
-	id = 'id'
+	slug = 'slug'
 
 	def get_object(self):
-		id = self.kwargs.get(self.id)
+		id = self.kwargs.get(self.slug)
 		obj = None
 		if id is not None:
-			obj = get_object_or_404(self.model, id=id)
+			obj = get_object_or_404(self.model, slug=slug)
 		return obj
 
 

@@ -39,4 +39,5 @@ class ArticleCreateForm(forms.ModelForm):
 			'featured',
 			'articleOfTheWeek',
 			'active',
+			'slug'
 		]
