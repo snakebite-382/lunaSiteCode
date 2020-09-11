@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 
+from django.views.generic import ListView, DetailView
+
 from .models import Article
 from .forms import ArticleCreateForm
 
@@ -117,13 +119,6 @@ class BlogPostsListView(View):
 
 		return render(request, self.template_name, context)
 
-class BlogPostDetailView(GetObjectMixin, View):
-	template_name="blog/detail.html"
-
-	def get(self, request, id=None,*args, **kwargs):
-		context = {
-			"obj": self.get_object(),
-		}
-		print(context)
-
-		return render(request, self.template_name, context)
+class BlogPostDetailView(DetailView):
+    model = Article
+    template_name = 'blog/detail.html'
