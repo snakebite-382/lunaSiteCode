@@ -19,32 +19,6 @@ class GetObjectMixin(object):
 
 
 # Create your views here.
-
-#Admin Article management
-# class BlogPostCreateView(View):
-# 	template_name = "blog/create.html"
-
-# 	def get(self, request, *args, **kwargs):
-# 		form = ArticleCreateForm()
-# 		context = {
-# 			'form': form
-# 		}
-# 		return render(request, self.template_name, context)
-
-# 	def post(self, request, *args, **kwargs):
-# 		form = ArticleCreateForm(request.POST)
-# 		if form.is_valid():
-# 			form.save()
-# 			form = ArticleCreateForm()
-# 		context = {
-# 			'form': form
-# 		}
-# 		return render(request, self.template_name, context)
-class BlogPostCreateView(CreateView):
-	template_name = "blog/create.html"
-	model = Article
-	form = ArticleCreateForm
-
 class BlogPostDeleteView(GetObjectMixin, View):
 	template_name = "blog/delete.html"
 
