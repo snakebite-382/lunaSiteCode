@@ -10,9 +10,9 @@
 				<h1 class="card-title">{{ obj.title }}</h1>
 			</div>
 			<div class="card-text">
-				<h2>By: {{ obj.author }}</h2>
+				<h2>By: {{ object.author }}</h2>
 
-				<h5>{{ obj.main|striptags}}</h5>
+				<h5>{{ object.main|striptags}}</h5>
 			</div>
 		</div>
 	</div>
@@ -27,7 +27,7 @@
 {% block content %}
 <script>
 	var URL = 'http://127.0.0.1:8000/{{ obj.get_absolute_url }}';
-	var ID = '{{ obj.get_absolute_url }}';
+	var ID = '{{ object.get_absolute_url }}';
 </script>
 
 {% include 'comments.html' %}
