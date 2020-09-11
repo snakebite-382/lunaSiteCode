@@ -23,7 +23,7 @@ class GetObjectMixin(object):
 class ReviewPostDeleteView(GetObjectMixin, View):
 	template_name = "reviews/delete.html"
 
-	def get(self, request, id=None, *args, **kwargs):
+	def get(self, request, slug=None, *args, **kwargs):
 		context = {
 			"obj": self.get_object()
 		}
@@ -88,9 +88,9 @@ class ReviewPostsListView(View):
 class ReviewPostDetailView(GetObjectMixin, View):
 	template_name="reviews/detail.html"
 
-	def get(self, request, id=None,*args, **kwargs):
+	def get(self, request, slug=None,*args, **kwargs):
 		context = {
 			"obj": self.get_object()
 		}
 
-		return render(request, self.template_name, context) 
+		return render(request, self.template_name, context)
