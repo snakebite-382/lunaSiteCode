@@ -3,7 +3,6 @@ from django.urls import path
 from .views import(
 	BlogPostsListView,
 	BlogPostDetailView,
-	BlogPostCreateView,
 	BlogPostDeleteView,
 	BlogPostUpdateView
 	)
