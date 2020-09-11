@@ -13,10 +13,10 @@ class Article(models.Model):
 	articleOfTheWeek = models.BooleanField(default=False)
 	active = models.BooleanField(default=True)
 	createdOn = models.DateTimeField(default=timezone.now)
-	# slug = models.SlugField(default='', editable=False, unique=True)\
+	slug = models.SlugField(editable=False, unique=True, default='')
 
 	def __str__(self):
 		return  f"{self.title} - {self.author}"
 
 	def get_absolute_url(self):
-		return reverse("blog-detail", kwargs={"id": self.id})
+		return reverse('article_detail', kwargs={'slug': self.slug})
