@@ -44,7 +44,7 @@
 	{% if object_list_new.count > 0 %}
 	<div id="blog-slider-new" class="carousel slide" data-interval="false">
 			<div style="padding:10px;">
-				<div id="newPostsBanner" class="d-none d-md-block text-center" style="border-radius: 15px 50px; background: #2eb82e;">
+				<div id="newPostsBanner" class="text-center" style="border-radius: 15px 50px; background: #2eb82e;">
 	  				<h1>New Articles</h1>
 	  			</div>
 	  		</div>
@@ -101,7 +101,7 @@
 	{% if object_list_featured_articles.count > 0 %}
 		<div id="blog-slider-feat" class="carousel slide" data-interval="false">
 			<div style="padding:10px;">
-				<div id="featuredPostsBanner" class="d-none d-md-block text-center" style="border-radius: 15px 50px; background: #cc0000;">
+				<div id="featuredPostsBanner" class="text-center" style="border-radius: 15px 50px; background: #cc0000;">
 	  				<h1>Featured Articles</h1>
 	  			</div>
 	  		</div>
@@ -121,7 +121,7 @@
 						{% if forloop.counter == 1 %}
 							<div class="carousel-item active">
 								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
-								<div class="carousel-caption d-none d-md-block" style="color:black;">
+								<div class="carousel-caption" style="color:black;">
 									<h2>{{ post.title }}</h2>
 									<h3>By: {{ post.author }}</h3>
 									<h4>{{ post.teaserSummary }}</h4>
@@ -131,7 +131,7 @@
 						{% else %}
 							<div class="carousel-item">
 								<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
-								<div class="carousel-caption d-none d-md-block" style="color:black;">
+								<div class="carousel-caption" style="color:black;">
 
 								<h2>{{ post.title }}</h2>
 								<h3>By: {{ post.author }}</h3>
@@ -158,7 +158,7 @@
 	{% if object_list_featured_reviews.count > 0 %}
 		<div id="blog-slider-feat-rev" class="carousel slide" data-interval="false">
 		<div style="padding:10px;">
-			<div id="featuredReviewsBanner" class="d-none d-md-block text-center"
+			<div id="featuredReviewsBanner" class="text-center"
 			style="
 				border-radius: 15px 50px;
 				background: #0066ff;">
@@ -181,7 +181,7 @@
 					{% if forloop.counter == 1 %}
 						<div class="carousel-item active">
 							<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
-							<div class="carousel-caption d-none d-md-block" style="color:black;">
+							<div class="carousel-caption" style="color:black;">
 								<h2>{{ post.product }}</h2>
 								{% if post.rating == '1S' %}
 									<h2>★☆☆☆☆</h2>
@@ -201,7 +201,7 @@
 					{% else %}
 						<div class="carousel-item">
 							<img class="image-fluid rounded mx-auto d-block" id="Image" src="/static/images/default.jpg" width="1000" height="450">
-							<div class="carousel-caption d-none d-md-block" style="color:black;">
+							<div class="carousel-caption" style="color:black;">
 
 							<h2>{{ post.product }}</h2>
 							{% if post.rating == '1S' %}
