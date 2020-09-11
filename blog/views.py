@@ -11,9 +11,9 @@ class GetObjectMixin(object):
 	slug = 'slug'
 
 	def get_object(self):
-		id = self.kwargs.get(self.slug)
+		slug= self.kwargs.get(self.slug)
 		obj = None
-		if id is not None:
+		if slug is not None:
 			obj = get_object_or_404(self.model, slug=slug)
 		return obj
 
