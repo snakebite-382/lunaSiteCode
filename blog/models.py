@@ -23,6 +23,6 @@ class Article(models.Model):
 		return reverse('blog-detail', kwargs={'slug': self.slug})
 
 	def save(self, *args, **kwargs): # new
-      if not self.slug:
-         self.slug = slugify(self.title)
-      return super().save(*args, **kwargs)
+		if not self.slug:
+			self.slug = slugify(self.title)
+		return super().save(*args, **kwargs)
