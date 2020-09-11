@@ -5,6 +5,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from pages.views import contact_view, about_view
 from home.views import HomePageView
 
+from pages import views as page_views
+from django.conf.urls import handler404
+
 urlpatterns = [
     path('blog/', include('blog.urls')),
     path('reviews/', include('reviews.urls')),
@@ -16,3 +19,5 @@ urlpatterns = [
     path('about/', about_view, name='about'),
 
 ]
+
+handler404 = page_views.error_404
