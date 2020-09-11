@@ -78,23 +78,6 @@
 								<a href="/reviews/" class="nav-link">Reviews</a>
 							</li>
 						{% endif %}
-						{% if user.is_superuser %}
-							<li class="nav-item dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown3">
-									Gallery
-									<span class="caret"></span>
-								</a>
-								<div class="dropdown-menu" aria-labelledby="#dropdown1">
-									<a href="/gallery/" class="dropdown-item">Gallery</a>
-									<div class="dropdown-divider"></div>
-									<a href="/gallery/create" class="dropdown-item">Create</a>
-								</div>
-							</li>
-						{% else %}
-							<li class="nav-item">
-								<a href="/gallery/" class="nav-link">Gallery</a>
-							</li>
-						{% endif %}
 						<li class="nav-item">
 							<a href="/about" class="nav-link">About</a>
 						</li>
