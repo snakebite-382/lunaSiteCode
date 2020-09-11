@@ -9,7 +9,7 @@ from reviews.models import Review
 class HomePageView(View):
 	template_name = "index.html"
 	def get(self, request, *args, **kwargs):
-		try:
+		# try:
 			querysetNew = Article.objects.filter(new="True", active="True")
 			querysetFeaturedArticles = Article.objects.filter(featured="True", active="True")
 			querysetFeaturedReviews =  Review.objects.filter(featured="True", active="True")
@@ -20,7 +20,7 @@ class HomePageView(View):
 				"object_list_featured_reviews": querysetFeaturedReviews,
 				"article_of_the_week": articleOfTheWeek,
 			}
-		except Exception as e:
-			print(e)
-			context = {}
+		# except Exception as e:
+		# 	print(e)
+		# 	context = {}
 		return render(request, self.template_name, context)
