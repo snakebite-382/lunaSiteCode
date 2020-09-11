@@ -30,5 +30,6 @@ class ReviewCreateForm(forms.ModelForm):
 			'rating',
 			'body',
 			'featured',
-			'active'
+			'active',
+			"slug"
 		]

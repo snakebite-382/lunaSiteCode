@@ -25,9 +25,15 @@ class Review(models.Model):
 	featured = models.BooleanField(default=False)
 	active = models.BooleanField(default=True)
 	createdOn = models.DateTimeField(default=timezone.now)
+	slug = models.SlugField(default='', null=True, unique=True)
 
 	def get_absolute_url(self):
-		return reverse("review-detail", kwargs={"id": self.id})
+		return reverse("review-detail", kwargs={"slug": self.slug})
 
 	def __str__(self):
 		return f"{self.product} - {self.rating} - {self.author}"
+
+	def save(self, *args, **kwargs): # new
+		if not self.slug:
+			self.slug = slugify(self.title)
+		return super().save(*args, **kwargs)

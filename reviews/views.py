@@ -6,38 +6,19 @@ from .forms import ReviewCreateForm
 
 class GetObjectMixin(object):
 	model = Review
-	id = 'id'
+	slug = 'slug'
 
 	def get_object(self):
-		id = self.kwargs.get(self.id)
+		slug = self.kwargs.get(self.slug)
 		obj = None
-		if id is not None:
-			obj = get_object_or_404(self.model, id=id)
+		if slug is not None:
+			obj = get_object_or_404(self.model, slug=slug)
 		return obj
 
 
 # Create your views here.
 
 #Admin Article management
-class ReviewPostCreateView(View):
-	template_name = "reviews/create.html"
-
-	def get(self, request, *args, **kwargs):
-		form = ReviewCreateForm()
-		context = {
-			'form': form
-		}
-		return render(request, self.template_name, context)
-
-	def post(self, request, *args, **kwargs):
-		form = ReviewCreateForm(request.POST)
-		if form.is_valid():
-			form.save()
-			form = ReviewCreateForm()
-		context = {
-			'form': form
-		}
-		return render(request, self.template_name, context)
 
 class ReviewPostDeleteView(GetObjectMixin, View):
 	template_name = "reviews/delete.html"
