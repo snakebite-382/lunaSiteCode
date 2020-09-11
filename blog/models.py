@@ -19,7 +19,7 @@ class Article(models.Model):
 	def __str__(self):
 		return  f"{self.title} - {self.author}"
 
-	def get_absolute_url(self):
+	def get_absolute_url(self, *args, **kwargs):
 		return reverse('blog-detail', kwargs={'slug': self.slug})
 
 	def save(self, *args, **kwargs):
