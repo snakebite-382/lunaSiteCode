@@ -13,7 +13,7 @@ class Article(models.Model):
 	articleOfTheWeek = models.BooleanField(default=False)
 	active = models.BooleanField(default=True)
 	createdOn = models.DateTimeField(default=timezone.now)
-	slug = models.SlugField(editable=False, unique=True, default='')
+	slug = models.SlugField(unique=True, default='')
 
 	def __str__(self):
 		return  f"{self.title} - {self.author}"
