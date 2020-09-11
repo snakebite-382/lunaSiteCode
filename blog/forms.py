@@ -21,7 +21,7 @@ class ArticleCreateForm(forms.ModelForm):
 									'cols': 50,
 								})
 							)
-	teaserSummary = forms.CharField(label='Summary', 
+	teaserSummary = forms.CharField(label='Summary',
 									widget = forms.TextInput(
 											attrs={
 												'placeholder': "A Short Summary",
@@ -39,5 +39,4 @@ class ArticleCreateForm(forms.ModelForm):
 			'featured',
 			'articleOfTheWeek',
 			'active',
-			'slug'
 		]
