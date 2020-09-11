@@ -8,4 +8,4 @@ def about_view(request):
 	return render(request, 'pages/about.html', {})
 
 def error_404(request):
-        return render('pages/error_404.html', context_instance=RequestContext(request))
+        return render('error_404.html', context_instance=RequestContext(request))
