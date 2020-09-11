@@ -29,7 +29,7 @@ class ReviewPostDeleteView(GetObjectMixin, View):
 		}
 		return render(request, self.template_name, context)
 
-	def post(self, request, id=None, *args ,**kwargs):
+	def post(self, request, slug=None, *args ,**kwargs):
 		obj = self.get_object()
 		context = {}
 
