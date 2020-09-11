@@ -9,7 +9,7 @@ class GetObjectMixin(object):
 	slug = 'slug'
 
 	def get_object(self):
-		slug = self.kwargs.get(self.slug)
+		slug= self.kwargs.get(self.slug)
 		obj = None
 		if slug is not None:
 			obj = get_object_or_404(self.model, slug=slug)
@@ -23,20 +23,20 @@ class GetObjectMixin(object):
 class ReviewPostDeleteView(GetObjectMixin, View):
 	template_name = "reviews/delete.html"
 
-	def get(self, request, slug=None, *args, **kwargs):
+	def get(self, request, pk=None, *args, **kwargs):
 		context = {
 			"obj": self.get_object()
 		}
 		return render(request, self.template_name, context)
 
-	def post(self, request, slug=None, *args ,**kwargs):
+	def post(self, request, id=None, *args ,**kwargs):
 		obj = self.get_object()
 		context = {}
 
 		if obj is not None:
 			obj.delete()
 			context['obj'] = None
-			return redirect('/reviews')
+			return redirect('/blog')
 
 		return render(request, self.template_name, context)
 
