@@ -1,9 +1,10 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "Luna Dog Blog",
+  "description": "Luna's site. Featuring blog posts and reviews, all about Luna",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
+  "repository": "https://github.com/snakebite-382/lunaSiteCode",
+  "keywords": ["luna", "dog", "blog", "reviews", "dog toys", "cute dog", "cute dogs", "dog blog", "dog food"],
+  "website": "www.lunadogblog.com",
   "addons": [ "heroku-postgresql" ],
   "env": {
     "SECRET_KEY": {
