@@ -18,7 +18,7 @@ class HomePageView(View):
 			# 	articleOfTheWeek = article_of_the_week[0]
 			# 	print("multiple articles of the week")
 			print("AOW: ")
-			print(articleOfTheWeek)
+			print(articleOfTheWeek[0])
 			print("Blog ")
 			print(querysetFeaturedArticles[0])
 			context = {
