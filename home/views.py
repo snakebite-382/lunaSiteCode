@@ -14,7 +14,7 @@ class HomePageView(View):
 			querysetFeaturedArticles = Article.objects.filter(featured="True", active="True")
 			querysetFeaturedReviews =  Review.objects.filter(featured="True", active="True")
 			articleOfTheWeek = Article.objects.filter(articleOfTheWeek="True", active="True")
-			if len(article_of_the_week) > 1:
+			if len(articleOfTheWeek) > 1:
 				article_of_the_week = article_of_the_week[0]
 				print("multiple articles of the week")
 			context = {
