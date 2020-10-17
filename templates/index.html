@@ -24,13 +24,13 @@
 		<div class='card'>
 			<a href="{{ article_of_the_week.get_absolute_url }}" style="color:black; text-decoration:none;">
 				<img src="/static/images/default.jpg" class="card-img-top">
-				<div class="card-bod text-center">
+				<div class="card-body text-center">
 					<div class="card-img-overlay text-center">
 						<h1>Featured Article!</h1>
 					</div>
 					<div class="card-title">
-						<h2>{{ article_of_the_week.title }}</h2>
-						<h3>By: {{ article_of_the_week.author }}</h3>
+						<h2>{{ article_of_the_week }}</h2>
+						<h3>By: {{ article_of_the_week }}</h3>
 					</div>
 					<div class="card-text">
 						<h5>{{ article_of_the_week.teaserSummary }}</h5>
