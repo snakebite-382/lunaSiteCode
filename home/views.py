@@ -13,7 +13,7 @@ class HomePageView(View):
 			querysetNew = Article.objects.filter(new="True", active="True")
 			querysetFeaturedArticles = Article.objects.filter(featured="True", active="True")
 			querysetFeaturedReviews =  Review.objects.filter(featured="True", active="True")
-			articleOfTheWeek = Article.objects.filter(articleOfTheWeek="True", active="True")[0]
+			articleOfTheWeek = Article.objects.filter(articleOfTheWeek="True", active="True")
 			# if len(articleOfTheWeek) > 1:
 			# 	articleOfTheWeek = article_of_the_week[0]
 			# 	print("multiple articles of the week")
@@ -25,7 +25,7 @@ class HomePageView(View):
 				"object_list_new": querysetNew,
 				"object_list_featured_articles": querysetFeaturedArticles,
 				"object_list_featured_reviews": querysetFeaturedReviews,
-				"article_of_the_week": articleOfTheWeek,
+				"article_of_the_week": articleOfTheWeek[0],
 			}
 		except Exception as e:
 			print(e)
