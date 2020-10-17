@@ -17,7 +17,8 @@ class HomePageView(View):
 			# if len(articleOfTheWeek) > 1:
 			# 	articleOfTheWeek = article_of_the_week[0]
 			# 	print("multiple articles of the week")
-			print(articleOfTheWeek)
+			print("AOW: " + articleOfTheWeek)
+			print("Blog " + querysetFeaturedArticles[0])
 			context = {
 				"object_list_new": querysetNew,
 				"object_list_featured_articles": querysetFeaturedArticles,
